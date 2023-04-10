@@ -37,7 +37,7 @@ function create() {
         text.font = Paths.font('Renogare-Regular.otf');
         text.size = (text == text_climb) ? 45 : 30;
         text.size *= 2;
-        text.scale.set(0.5, 0.5); // oh shit lmao look in dms
+        text.scale.set(0.5, 0.5);
         text.updateHitbox();
         text.fieldWidth = (text.width + 10) * 2;
         text.alignment = "center";

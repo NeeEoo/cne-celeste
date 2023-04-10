@@ -4,6 +4,6 @@ class MenuButton extends flixel.FlxSprite {
     }
 
     override function update() {
-        
+
     }
 }
