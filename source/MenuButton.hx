@@ -5,8 +5,8 @@ import funkin.system.Paths;
 import flixel.text.FlxTextBorderStyle;
 
 class MenuButton extends flixel.text.FlxText {
-    public function new(X:Float = 0, Y:Float = 0, FieldWidth:Float = 0, ?Text:String, Size:Int = 8) {
-    	super(X, Y, FieldWidth, Text, Size);
+	public function new(X:Float = 0, Y:Float = 0, FieldWidth:Float = 0, ?Text:String, Size:Int = 8) {
+		super(X, Y, FieldWidth, Text, Size);
 
 		font = Paths.font('Renogare-Regular.otf');
 		size *= 2;
@@ -23,14 +23,14 @@ class MenuButton extends flixel.text.FlxText {
 		active = true;
 
 		trace("loaded");
-    }
+	}
 
 	var targetItem = 0;
 
-	var colorTimer = 0.3;
+	var colorTimer = 0.1;
 	var isGreen = true;
 
-    public override function update(elapsed:Float) {
+	/*public override function update(elapsed:Float) {
 		super.update(elapsed);
 
 		trace(targetItem);
@@ -45,5 +45,18 @@ class MenuButton extends flixel.text.FlxText {
 		} else {
 			color = 0xFFFFFFFF;
 		}
-    }
+	}*/
+
+	public function updateTempFix(elapsed:Float) {
+		if(targetItem == 0) {
+			colorTimer -= elapsed;
+			while(colorTimer <= 0) {
+				colorTimer += 0.1;
+				isGreen = !isGreen;
+			}
+			color = isGreen ? 0xFF00FF00 : 0xFFffff00;
+		} else {
+			color = 0xFFFFFFFF;
+		}
+	}
 }

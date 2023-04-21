@@ -76,6 +76,19 @@ function mod(n:Int, m:Int) {
 	return ((n % m) + m) % m;
 }
 
+function update(elapsed) {
+	for(t in textElements) t.updateTempFix(elapsed); // temporary fix
+
+	if(controls.UP_P) changeSelection(-1);
+	if(controls.DOWN_P) changeSelection(1);
+
+	if(controls.ACCEPT) {
+		if(curSelected == 0) {
+			FlxG.switchState(new ModState("celeste/PlatformerState"));
+		}
+	}
+}
+
 function changeSelection(change) {
 	curSelected = mod(curSelected + change, textElements.length);
 

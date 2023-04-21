@@ -2,15 +2,15 @@ function pixelsToTiles(x, y) {
 	return new FlxPoint(Math.floor(x / 8) + 1, Math.floor(y / 8) + 1);
 }
 
-function getRoomAtCoords(x, y, map) {
+function getRoomAtCoords(x, y, map):Dynamic {
 	for (i in 0...map.rooms.length) {
 		var room = map.rooms[i];
-		if(x >= room.x and x <= room.x + room.width and y >= room.y and y <= room.y + room.height) {
-			return room
+		if(x >= room.x && x <= room.x + room.width && y >= room.y && y <= room.y + room.height) {
+			return room;
 		}
 	}
 
-	return false
+	return false;
 }
 
 /*
